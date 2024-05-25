@@ -1,6 +1,5 @@
 ﻿using CarRentalApp.API.DAO.Abstract;
 using CarRentalApp.API.DAO.Implementation;
-using CarRentalApp.API.Data;
 using CarRentalApp.API.Models;
 using CarRentalApp.API.Services.Abstract;
 
@@ -44,8 +43,8 @@ namespace CarRentalApp.API.Services.Implementation
 
         public List<RentalAgreement> GetUserRentalAgreementList(string userId)
         {
-            //call the repository method
-            List<RentalAgreement> rentalAgreements = _carRentRepository.GetUserRentalAgreementList(userId);  /*_db.RentalAgreements.Where(obj => obj.UserId == userId).ToList();*/
+            //get all user agreements
+            List<RentalAgreement> rentalAgreements = _carRentRepository.GetUserRentalAgreementList(userId);
             return rentalAgreements;
         }
 
@@ -53,7 +52,6 @@ namespace CarRentalApp.API.Services.Implementation
         {
             //call the repo method
             return _carRentRepository.ReturnRequest(agreementId);
-
         }
 
         //for admin
@@ -83,7 +81,7 @@ namespace CarRentalApp.API.Services.Implementation
             {
                 return false;
             }
-            //call repo method
+            //update rental agreement
             return _carRentRepository.UpdateRentalAgreement(rentalAgreementId, rentalAgreement);
         }
 

@@ -1,5 +1,6 @@
 ﻿using CarRentalApp.API.Models;
 using CarRentalApp.API.Services.Abstract;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarRentalApp.API.Controllers
@@ -16,6 +17,7 @@ namespace CarRentalApp.API.Controllers
 
 
         [HttpPost("rent")]
+        [Authorize]
         public IActionResult RentCar( RentalAgreement rentalAgreement)
         {
             if(ModelState.IsValid)
@@ -38,6 +40,7 @@ namespace CarRentalApp.API.Controllers
         }
 
         [HttpGet("RentalAgreements/{username}")]
+        [Authorize]
         public IActionResult GetUserRentalAgreements(string username)
         {
             //call the service method
@@ -46,6 +49,7 @@ namespace CarRentalApp.API.Controllers
         }
 
         [HttpGet("Return/{rentalAgreementId}")]
+        [Authorize]
         public IActionResult ReturnRequest( int rentalAgreementId)
         {
             //call the service method
@@ -60,15 +64,17 @@ namespace CarRentalApp.API.Controllers
         }
 
         [HttpGet("RentalAgreements")]
+        [Authorize]
         //will be used by admin
         public IActionResult GetRentalAgreements()
         {
-            //call the service method
+            //get all rental agreements for admin
             List<RentalAgreement> rentalAgreements = _carRentService.GetRentalAgreements();
             return Ok(rentalAgreements);
         }
 
         [HttpGet("GetRentalAgreement/{id}")]
+        [Authorize]
         public IActionResult GetRentalAgreementById(int id)
         {
             // some checks
@@ -89,6 +95,7 @@ namespace CarRentalApp.API.Controllers
         }
 
         [HttpDelete("Delete/{id}")]
+        [Authorize]
         public IActionResult DeleteRentalAgreement( int id)
         {
             //call the service method
@@ -103,6 +110,7 @@ namespace CarRentalApp.API.Controllers
         }
 
         [HttpPut("RentalAgreement/{rentalAgreementId}")]
+        [Authorize]
         //for admin
         public IActionResult UpdateRentalAgreement( int rentalAgreementId, RentalAgreement rentalAgreement)
         {
@@ -128,6 +136,7 @@ namespace CarRentalApp.API.Controllers
         }
 
         [HttpPost("MarkForInspection")]
+        [Authorize]
         public IActionResult MarkForInspection( CarInspection carInspectionObj)
         {
             bool res=_carRentService.MarkForInspection(carInspectionObj);
@@ -136,6 +145,7 @@ namespace CarRentalApp.API.Controllers
 
         }
         [HttpGet("InspectionCompleted/{carId}")]
+        [Authorize]
         //for admin
         public IActionResult InspectionCompleted( int carId)
         {
@@ -152,6 +162,7 @@ namespace CarRentalApp.API.Controllers
 
         //to list cars under inspection
         [HttpGet("GetCarInspections")]
+        [Authorize]
         public IActionResult GetCarInspections()
         {
             //cal the service method

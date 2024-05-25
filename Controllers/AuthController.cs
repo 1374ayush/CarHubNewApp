@@ -28,9 +28,9 @@ namespace CarRentalApp.API.Controllers
             if (ModelState.IsValid)
             {
                 var result =await _authService.Login(signInModel);
-                if (result.Succeeded)
+                if (result!=null)
                 {
-                    return Ok(new { username = signInModel.Username });
+                    return Ok(new { token = result });
                 }
             }
             ModelState.AddModelError("", "Invalid Credentials");

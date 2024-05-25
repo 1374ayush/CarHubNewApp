@@ -4,6 +4,7 @@ namespace CarRentalApp.API.Initializer
 {
     public static class DbInitializer
     {
+        //extension method
         public static WebApplication Seed(this WebApplication app)
         {
             using (var scope = app.Services.CreateScope())

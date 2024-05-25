@@ -5,7 +5,7 @@ namespace CarRentalApp.API.Services_layer.Implementation
 {
     public interface IAuthService
     {
-        Task<SignInResult> Login(SignInModel signInModel);
+        Task<string> Login(SignInModel signInModel);
         Task<IdentityResult> SignUp(User obj);
     }
 }

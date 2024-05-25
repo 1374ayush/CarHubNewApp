@@ -13,6 +13,5 @@ namespace CarRentalApp.API.Models
         public string TotalCost { get; set; }
         public bool ReturnStatus { get; set; } 
 
-
     }
 }

@@ -6,7 +6,6 @@ namespace CarRentalApp.API.Models
     {
         [Key]
         public int Id { get; set; }
-        
         public int  RentalAgreementId { get; set; }
         public int CarId { get; set; }
         public string UserId { get; set; }

@@ -1,5 +1,4 @@
 ﻿using CarRentalApp.API.DAO.Abstract;
-using CarRentalApp.API.Data;
 using CarRentalApp.API.Models;
 using CarRentalApp.API.Services.Abstract;
 using Microsoft.EntityFrameworkCore;
@@ -8,11 +7,9 @@ namespace CarRentalApp.API.Services.Implementation
 {
     public class CarCrudService : ICarCrudService
     {
-        private readonly ApplicationDbContext _db;
         private readonly ICarCrudRepository _carCrudRepository;
-        public CarCrudService(ApplicationDbContext db,ICarCrudRepository carCrudRepository)
+        public CarCrudService(ICarCrudRepository carCrudRepository)
         {
-            _db = db;
             _carCrudRepository = carCrudRepository;
         }
         

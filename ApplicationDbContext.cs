@@ -4,15 +4,14 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace CarRentalApp.API.Data
+namespace CarRentalApp.API
 {
-    public class ApplicationDbContext:IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext
     {
-        
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
 
-            
         }
         //adding models
         public DbSet<Car> Cars { get; set; }

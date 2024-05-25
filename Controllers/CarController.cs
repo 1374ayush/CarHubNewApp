@@ -1,6 +1,7 @@
 ﻿using CarRentalApp.API.Models;
 using CarRentalApp.API.Services.Abstract;
 using CarRentalApp.API.Services.Implementation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,7 +18,8 @@ namespace CarRentalApp.API.Controllers
             _carCrudService = carCrudService;
         }
 
-        [HttpPost("AddCar")] 
+        [HttpPost("AddCar")]
+        [Authorize]
         public IActionResult AddCar(Car carObj)
         {
             if(ModelState.IsValid)
@@ -33,6 +35,7 @@ namespace CarRentalApp.API.Controllers
 
 
         [HttpGet("GetCars")]
+        [Authorize]
         public IActionResult GetCars()
         {  
             //call service method
@@ -41,6 +44,7 @@ namespace CarRentalApp.API.Controllers
         }
 
         [HttpDelete("DeleteCar/{id}")]
+        [Authorize]
         public IActionResult DeleteCar( int id)
         {
             var error = new { message = "Invalid Id" };
@@ -62,6 +66,7 @@ namespace CarRentalApp.API.Controllers
         }
 
         [HttpPut("UpdateCar/{id}")]
+        [Authorize]
         public IActionResult UpdateCar(int id, Car carObj)
         {
             if (ModelState.IsValid)
@@ -86,6 +91,7 @@ namespace CarRentalApp.API.Controllers
         }
 
         [HttpGet("GetCar/{id}")]
+        [Authorize]
         public IActionResult GetCar( int id)
         {
             var error = new { message = "Invalid Id" };

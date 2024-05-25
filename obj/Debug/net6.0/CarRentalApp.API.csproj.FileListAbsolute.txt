@@ -130,3 +130,5 @@ C:\Users\ayushsrivastava03\OneDrive - Nagarro\Desktop\CarRentalApp.API\obj\Debug
 C:\Users\ayushsrivastava03\OneDrive - Nagarro\Desktop\CarRentalApp.API\obj\Debug\net6.0\CarRentalApp.API.pdb
 C:\Users\ayushsrivastava03\OneDrive - Nagarro\Desktop\CarRentalApp.API\obj\Debug\net6.0\CarRentalApp.API.genruntimeconfig.cache
 C:\Users\ayushsrivastava03\OneDrive - Nagarro\Desktop\CarRentalApp.API\obj\Debug\net6.0\ref\CarRentalApp.API.dll
+C:\Users\ayushsrivastava03\OneDrive - Nagarro\Desktop\CarRentalApp.API\obj\Debug\net6.0\CarRentalApp.API.sourcelink.json
+C:\Users\ayushsrivastava03\OneDrive - Nagarro\Desktop\CarRentalApp.API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

@@ -1,5 +1,4 @@
 ﻿using CarRentalApp.API.DAO.Abstract;
-using CarRentalApp.API.Data;
 using CarRentalApp.API.Models;
 
 namespace CarRentalApp.API.DAO.Implementation
