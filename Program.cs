@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace CarRentalApp.API
 {
@@ -47,8 +48,14 @@ namespace CarRentalApp.API
             //jwt authentication service
             builder.Services.AddAuthentication(options =>
             {
+                //setting up the authentication schemes
+                //The default authentication scheme determines the default method used by the application to authenticate users.
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+
+                //The default challenge scheme determines the method used to challenge the user for authentication
+                //when a user tries to access a resource that requires authentication, but is not authenticated.
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+
                 options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
             })
                 .AddJwtBearer(options =>
@@ -64,7 +71,7 @@ namespace CarRentalApp.API
                     };
                 });
 
-            // Add Authorization service
+            // Add Authorization Service
             builder.Services.AddAuthorization();
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -81,13 +88,14 @@ namespace CarRentalApp.API
             }
             app.UseCors(policy => policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 
-            app.UseHttpsRedirection();
+            app.UseHttpsRedirection(); //for https
 
             app.UseAuthentication();
 
+            //: it responsible for enforcing authorization policies.
             app.UseAuthorization();
 
-            app.Seed();
+            app.Seed(); //for seeding data
 
             app.MapControllers();
 
